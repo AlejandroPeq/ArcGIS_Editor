@@ -29,12 +29,21 @@
                     </nav>
                     <!-- user specific dropdowns -->
                     <nav class="class-top-nav-list right" role="navigation" aria-labelledby="usernav">
-                        <form method="GET" action="/search/" class="inline-block padding-leader-half">
+                        <!-- <form method="GET" action="/search/" class="inline-block padding-leader-half">
                             <input type="search" placeholder="Buscar" name="q" style="margin-top: -1px;">
                             <button type="submit" class="hide">Buscar</button>
-                        </form>
+                        </form> -->
 
-                        <a class="btn btn-clear margin-left-1" href="#">Iniciar Sesión</a>
+                        <a id="anonymousPanel" class="btn btn-clear margin-left-1 animate-fade-in leader-half"
+                            href="#"><span id="sign-in">Iniciar
+                                Sesión</span></a>
+
+
+                        <a id="personalizedPanel" class="animate-fade-in" style="display: none;">
+                            <span id="userId" style="font-weight: bold;"></span> &nbsp;-&nbsp;
+                            <span id="sign-out" class="action">Cerrar Sesión</span>
+                        </a>
+
                     </nav>
                 </div>
 
@@ -50,10 +59,10 @@
                         <a href="/" class="top-nav-link">ArcGIS <span class="phone-hide">for Developers</span></a>
                     </header>
                     <!-- user specific actions -->
-                    <nav class="top-nav-flex-list text-right" role="navigation" aria-labelledby="usernav">
+                    <nav class="top-nav-flex-list tex t-right" role="navigation" aria-labelledby="usernav">
                         <a class="top-nav-link icon-ui-search js-drawer-toggle" href="#" aria-label="Search"><span
                                 class="phone-hide">Search</span></a>
-                        <a class="top-nav-link icon-ui-user margin-left-1 js-drawer-toggle" href="#"
+                        <a id="anonymousPanel" class="top-nav-link icon-ui-user margin-left-1 js-drawer-toggle" href="#"
                             aria-label="Sign In"><span class="phone-hide">Sign In</span></a>
                     </nav>
                 </div>
@@ -67,13 +76,14 @@
 
 
     <div id="tools-panel" class="panel">
-       
+
 
         <div class="tabs-transparent trailer-1  js-tab-group">
             <nav class="tab-nav">
                 <a class="tab-title is-active js-tab">Edición</a>
                 <a class="tab-title js-tab">Listado</a>
                 <a class="tab-title js-tab">Leyenda</span></a>
+                <a class="tab-title js-tab">Servicios</span></a>
             </nav>
             <section class="tab-contents">
                 <article class="tab-section js-tab-section is-active">
@@ -91,10 +101,29 @@
                         <div id="legend-tool" class="leader-half"></div>
                     </div>
                 </article>
+
+                <article class="tab-section js-tab-section">
+                    <div id="contenedor-add-feature-tool" >
+                        <input type="text" id="inputFeature">
+                        <button id="buttonFeature" class="btn btn-fill btn-clear leader-half"> Añadir Servicio </button>
+
+                        <div id="itemGallery" class="leader-half"></div>
+                    </div>
+                </article>
+
+
             </section>
         </div>
     </div>
     <!--  -->
+
+
+    <div id="loader-container" class="loader">
+        <div class="loader-bars"></div>
+        <div class="loader-text">Loading...</div>
+    </div>
+
+
     <div id="map2d"></div>
 
     <script src="js/calcite.min.js"></script>
